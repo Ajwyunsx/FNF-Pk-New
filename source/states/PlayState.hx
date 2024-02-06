@@ -575,10 +575,13 @@ class PlayState extends MusicBeatState
 
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
+		
 		if(!ClientPrefs.data.combohud)
 		comboGroup.cameras = [camHUD];
-		else
+		
+		if(ClientPrefs.data.combohud)
 		comboGroup.cameras = [camGame];
+		
 
 		var buttonsColors:Array<FlxColor> = [];
 		var data:Dynamic;
