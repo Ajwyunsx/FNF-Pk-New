@@ -576,10 +576,10 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		
-	//	if(!ClientPrefs.data.combohud)
-	//	comboGroup.cameras = [camHUD];
+		if(!ClientPrefs.data.combohud)
+		comboGroup.cameras = [camHUD];
 		
-	//	if(ClientPrefs.data.combohud)
+		if(ClientPrefs.data.combohud)
 		comboGroup.cameras = [camGame];
 		
 
@@ -1250,7 +1250,8 @@ class PlayState extends MusicBeatState
 		@:privateAccess
 		FlxG.sound.playMusic(inst._sound, 1, false);
 		#if FLX_PITCH FlxG.sound.music.pitch = playbackRate; #end
-		FlxG.sound.music.onComplete = finishSong.bind();
+	//	FlxG.sound.music.onComplete = finishSong.bind();
+	    finishSong.bind();
 		vocals.play();
 
 		if(startOnTime > 0) setSongTime(startOnTime - 500);
@@ -1962,7 +1963,8 @@ class PlayState extends MusicBeatState
 		if(!endingSong && !startingSong) {
 			if (FlxG.keys.justPressed.ONE) {
 				KillNotes();
-				FlxG.sound.music.onComplete();
+				//FlxG.sound.music.onComplete();
+				finishSong.bind();
 			}
 			if(FlxG.keys.justPressed.TWO) { //Go 10 seconds into the future :O
 				setSongTime(Conductor.songPosition + 10000);
