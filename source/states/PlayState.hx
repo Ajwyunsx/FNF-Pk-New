@@ -564,7 +564,7 @@ class PlayState extends MusicBeatState
 		updateScore(false);
 		uiGroup.add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "CHATPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -575,7 +575,10 @@ class PlayState extends MusicBeatState
 
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
+		if(!ClientPrefs.data.combohud)
 		comboGroup.cameras = [camHUD];
+		else
+		comboGroup.cameras = [camGame];
 
 		var buttonsColors:Array<FlxColor> = [];
 		var data:Dynamic;
@@ -1160,8 +1163,8 @@ class PlayState extends MusicBeatState
 		}
 
 		var tempScore:String = 'Score: ${songScore}'
-		+ (!instakillOnMiss ? ' | Misses: ${songMisses}' : "")
-		+ ' | Rating: ${str}';
+		+ (!instakillOnMiss ? ' | Combo Breaks: ${songMisses}' : "")
+		+ ' | Accuracy: ${str}';
 		// "tempScore" variable is used to prevent another memory leak, just in case
 		// "\n" here prevents the text from being cut off by beat zooms
 		scoreTxt.text = '${tempScore}\n';
