@@ -576,10 +576,10 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		
-		if(!ClientPrefs.data.combohud)
-		comboGroup.cameras = [camHUD];
+	//	if(!ClientPrefs.data.combohud)
+	//	comboGroup.cameras = [camHUD];
 		
-		if(ClientPrefs.data.combohud)
+	//	if(ClientPrefs.data.combohud)
 		comboGroup.cameras = [camGame];
 		
 
