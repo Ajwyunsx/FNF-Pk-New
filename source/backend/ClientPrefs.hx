@@ -13,6 +13,7 @@ import states.TitleState;
 	public var controlsAlpha:Float = #if (mobile || mobileC) 0.6 #else 0.001 #end;
 	public var popUpRating:Bool = true;
 	public var downScroll:Bool = false;
+	public var combohud:Bool = true;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
 	public var showFPS:Bool = true;
